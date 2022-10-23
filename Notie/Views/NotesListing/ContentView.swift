@@ -18,7 +18,7 @@ struct ContentView: View {
                     List {
                         ForEach(notes) { note in
                             NavigationLink {
-
+                                AddEditNoteView(note: note)
                             } label: {
                                 NoteRowView(note: note)
                             }
@@ -31,7 +31,7 @@ struct ContentView: View {
             }.navigationBarTitle(Text("My Notes"))
                 .navigationBarItems(
                     trailing: NavigationLink {
-                        AddEditNoteView()
+                        AddEditNoteView(note: nil)
                     } label: {
                         Label("Add Note", systemImage: "plus")
                     }

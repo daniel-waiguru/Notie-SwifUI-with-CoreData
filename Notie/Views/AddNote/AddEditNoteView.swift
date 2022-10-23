@@ -12,39 +12,38 @@ struct AddEditNoteView: View {
     @State private var title: String = ""
     @State private var content: String = ""
     @State private var hasErrorOcurred = false
+    var note: Note?
     var body: some View {
         NavigationView {
             Form {
                 TextField("Title", text: $title)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.words)
+                    .fontWeight(.semibold)
+                    .kerning(0.2)
                 TextField("Description", text: $content)
                     .frame(height: 100.0, alignment: .top)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.sentences)
-                Button("Save") {
+                    .kerning(0.2)
+                    .font(.subheadline)
+                SaveButton(text: "Save", onSaveClicked: {
                     saveNote()
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10.0)
-                .alert(isPresented: $hasErrorOcurred) {
-                    return Alert(title: Text("Failed!"), message: Text("Failed to add your note, Try again."),
-                                 dismissButton: .default(Text("Ok")))
-                }
-
+                }, hasErrorOcurred: $hasErrorOcurred)
             }.navigationTitle("Add Note")
                 .frame(maxHeight: .infinity, alignment: .top)
         }
     }
     private func saveNote() {
-        let note = Note(context: self.manageObjectContext)
-        note.id = UUID()
-        note.title = title
-        note.content = content
-        note.date = Date()
+        let newOrUpdatedNote = Note(context: self.manageObjectContext)
+        if note != nil {
+            newOrUpdatedNote.id = self.note?.id
+        } else {
+            newOrUpdatedNote.id = UUID()
+        }
+        newOrUpdatedNote.title = title
+        newOrUpdatedNote.content = content
+        newOrUpdatedNote.date = Date()
         do {
             try manageObjectContext.save()
         } catch {
@@ -59,6 +58,6 @@ struct AddEditNoteView: View {
 
 struct AddEditNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEditNoteView()
+        AddEditNoteView(note: nil)
     }
 }
