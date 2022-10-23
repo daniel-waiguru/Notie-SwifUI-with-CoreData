@@ -12,7 +12,7 @@ struct NotieApp: App {
     @StateObject private var dataController = DataController()
     var body: some Scene {
         WindowGroup {
-            NotesListView()
+            ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }

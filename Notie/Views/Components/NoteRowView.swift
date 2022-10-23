@@ -11,17 +11,11 @@ struct NoteRowView: View {
     var note: Note
     var body: some View {
         VStack(alignment: .leading) {
-            Text(note.title ?? "Unknown")
-                .font(.title3)
-                .fontWeight(.bold)
+            TitleTextView(text: note.title ?? "Unknown")
                 .lineLimit(1)
-            Text(note.content ?? "Unknown")
-                .font(.footnote)
+            BodyTextView(text: note.content ?? "Unknown")
                 .lineLimit(3)
-
-            Text(note.date ?? Date(), format: .dateTime)
-                .font(.caption)
-                .lineLimit(1)
+            DateTextView(date: note.date ?? Date())
         }
     }
 }

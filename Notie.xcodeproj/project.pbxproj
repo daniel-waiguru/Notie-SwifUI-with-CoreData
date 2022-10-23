@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B164293D29055B1400319AB8 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B164293C29055B1400319AB8 /* TextViews.swift */; };
+		B16B9AA32905596B00FE2252 /* EmptyNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B9AA22905596B00FE2252 /* EmptyNoteView.swift */; };
 		B18E20122901EFA100B36C11 /* NotieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E20112901EFA100B36C11 /* NotieApp.swift */; };
-		B18E20142901EFA100B36C11 /* NotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E20132901EFA100B36C11 /* NotesListView.swift */; };
+		B18E20142901EFA100B36C11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E20132901EFA100B36C11 /* ContentView.swift */; };
 		B18E20162901EFA400B36C11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18E20152901EFA400B36C11 /* Assets.xcassets */; };
 		B18E20192901EFA400B36C11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18E20182901EFA400B36C11 /* Preview Assets.xcassets */; };
 		B18E20232901EFA400B36C11 /* NotieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E20222901EFA400B36C11 /* NotieTests.swift */; };
@@ -40,9 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B164293C29055B1400319AB8 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		B16B9AA22905596B00FE2252 /* EmptyNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyNoteView.swift; sourceTree = "<group>"; };
 		B18E200E2901EFA100B36C11 /* Notie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18E20112901EFA100B36C11 /* NotieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotieApp.swift; sourceTree = "<group>"; };
-		B18E20132901EFA100B36C11 /* NotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListView.swift; sourceTree = "<group>"; };
+		B18E20132901EFA100B36C11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B18E20152901EFA400B36C11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B18E20182901EFA400B36C11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B18E201E2901EFA400B36C11 /* NotieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +87,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B16B9A9C2905578700FE2252 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B18E20442901F7C900B36C11 /* NoteRowView.swift */,
+				B16B9AA22905596B00FE2252 /* EmptyNoteView.swift */,
+				B164293C29055B1400319AB8 /* TextViews.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B16B9A9D290557B700FE2252 /* NotesListing */ = {
+			isa = PBXGroup;
+			children = (
+				B18E20132901EFA100B36C11 /* ContentView.swift */,
+			);
+			path = NotesListing;
+			sourceTree = "<group>";
+		};
+		B16B9A9F290557E600FE2252 /* AddNote */ = {
+			isa = PBXGroup;
+			children = (
+				B1A205D429053CDF00535E1D /* AddEditNoteViewModel.swift */,
+				B1F51F3D29052C7F008F6A26 /* AddEditNoteView.swift */,
+			);
+			path = AddNote;
+			sourceTree = "<group>";
+		};
 		B18E20052901EFA100B36C11 = {
 			isa = PBXGroup;
 			children = (
@@ -153,10 +184,9 @@
 		B18E20432901F74000B36C11 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B18E20132901EFA100B36C11 /* NotesListView.swift */,
-				B18E20442901F7C900B36C11 /* NoteRowView.swift */,
-				B1F51F3D29052C7F008F6A26 /* AddEditNoteView.swift */,
-				B1A205D429053CDF00535E1D /* AddEditNoteViewModel.swift */,
+				B16B9A9C2905578700FE2252 /* Components */,
+				B16B9A9D290557B700FE2252 /* NotesListing */,
+				B16B9A9F290557E600FE2252 /* AddNote */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,10 +332,12 @@
 				B1F51F3E29052C7F008F6A26 /* AddEditNoteView.swift in Sources */,
 				B18E20402901F08300B36C11 /* Notie.xcdatamodeld in Sources */,
 				B18E20422901F12D00B36C11 /* DataController.swift in Sources */,
+				B164293D29055B1400319AB8 /* TextViews.swift in Sources */,
 				B18E20452901F7C900B36C11 /* NoteRowView.swift in Sources */,
-				B18E20142901EFA100B36C11 /* NotesListView.swift in Sources */,
+				B18E20142901EFA100B36C11 /* ContentView.swift in Sources */,
 				B18E20122901EFA100B36C11 /* NotieApp.swift in Sources */,
 				B1A205D529053CDF00535E1D /* AddEditNoteViewModel.swift in Sources */,
+				B16B9AA32905596B00FE2252 /* EmptyNoteView.swift in Sources */,
 				B1F51F41290534F0008F6A26 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
