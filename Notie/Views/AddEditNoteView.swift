@@ -18,10 +18,10 @@ struct AddEditNoteView: View {
                 TextField("Title", text: $title)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.words)
-
                 TextField("Description", text: $content)
                     .frame(height: 100.0, alignment: .top)
-
+                    .disableAutocorrection(true)
+                    .textInputAutocapitalization(.sentences)
                 Button("Save") {
                     saveNote()
                 }
@@ -29,22 +29,21 @@ struct AddEditNoteView: View {
                 .padding()
                 .background(.blue)
                 .foregroundColor(.white)
-                .cornerRadius(21.0)
-                .alert(isPresented: $hasErrorOcurred, content) {
+                .cornerRadius(10.0)
+                .alert(isPresented: $hasErrorOcurred) {
                     return Alert(title: Text("Failed!"), message: Text("Failed to add your note, Try again."),
                                  dismissButton: .default(Text("Ok")))
                 }
-            }
 
-            }
-            .navigationTitle("Add Note")
-
+            }.navigationTitle("Add Note")
+                .frame(maxHeight: .infinity, alignment: .top)
+        }
     }
-    func saveNote() {
+    private func saveNote() {
         let note = Note(context: self.manageObjectContext)
         note.id = UUID()
-        note.title = "Note Title"
-        note.content = "Note content"
+        note.title = title
+        note.content = content
         note.date = Date()
         do {
             try manageObjectContext.save()

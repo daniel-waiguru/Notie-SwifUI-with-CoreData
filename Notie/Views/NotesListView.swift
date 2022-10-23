@@ -25,15 +25,13 @@ struct NotesListView: View {
                 }
 
             }.navigationBarTitle(Text("My Notes"))
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink {
-                            AddEditNoteView()
-                        } label: {
-                            Label("Hi", systemImage: "plus")
-                        }
+                .navigationBarItems(
+                    trailing: NavigationLink {
+                        AddEditNoteView()
+                    } label: {
+                        Label("Hi", systemImage: "plus")
                     }
-                }
+                )
         }
     }
 }
