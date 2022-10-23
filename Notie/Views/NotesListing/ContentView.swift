@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @FetchRequest(sortDescriptors: []) var notes: FetchedResults<Note>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Note.date, ascending: false)]) var notes: FetchedResults<Note>
     var body: some View {
         NavigationView {
             VStack {
